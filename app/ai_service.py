@@ -21,14 +21,28 @@ client = OpenAI(
 class AIServiceError(Exception):
     pass
 
+
+
+def get_openai_client() -> OpenAI:
+    if not settings.openai_api_key:
+        raise AIServiceError("OpenAI API key is not configured")
+
+    return OpenAI(
+        api_key=settings.openai_api_key,
+        timeout=60.0,
+    )
+
+
 def generate_interview_scenario() -> str:
     try:
         logger.info("Generating AI infrastructure interview scenario")
 
+        client = get_openai_client()
+
         response = client.responses.create(
             model=settings.open_ai_model,
             input=(
-                "Create one realistic technical interview ario for an"
+                "Create one realistic technical interview ario for an "
                 "AI infrustructure engineer. Focus on productionizaing an AI"
             " application. Return only the scenario."
             ),
@@ -160,6 +174,8 @@ Identify important missing considerations involving areas such as:
 Do not rewrite the candidate's answer
 """
 
+        client = get_openai_client()
+
         response = client.responses.create(
             model=settings.open_ai_model,
             input=prompt,
@@ -217,6 +233,9 @@ should be clear and structured, but not overly formal.
 Do not just list technologies. Explain the reasoning behind important
 infrastructure decisions.
 """
+
+        client = get_openai_client()
+
         response = client.responses.create(
             model=settings.open_ai_model,
             input=prompt,
@@ -244,3 +263,4 @@ infrastructure decisions.
             exc.status_code
         )
         raise AIServiceError("AI service returned an error") from exc
+
