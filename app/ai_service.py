@@ -74,6 +74,7 @@ def evaluate_interview_answer(
     try:
         logger.info("Evaluating interview answer")
 
+        client = get_openai_client()
 
         prompt = f"""
 You are evaluating a technical interview answer for an AI infrastructure engineer role.
@@ -136,6 +137,8 @@ def critique_interview_answer(
 ) -> str:
     try:
         logger.info("Critic agent evaluating answer")
+
+        client = get_openai_client()
 
         prompt = f"""
 You are a Critic Agenct for an AI Infrastructure Engineer interview.

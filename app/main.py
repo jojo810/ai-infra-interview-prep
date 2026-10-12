@@ -6,13 +6,9 @@ from app.ai_service import (
     AIServiceError,
     generate_interview_scenario,
 )
-
-from app.interview_agent import run_interview_evaluation
-
-from app.models import InterviewAnswerRequest
-
 from app.config import settings
-
+from app.interview_agent import run_interview_evaluation
+from app.models import InterviewAnswerRequest
 
 logging.basicConfig(
     level=logging.INFO,
