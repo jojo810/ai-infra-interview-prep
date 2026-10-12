@@ -25,8 +25,8 @@ def health_check():
 @app.get("/config-check")
 def config_check():
     return {
-        "openai_configured": bool(settings.open_api_key),
-        "model": settings.open_ai_model,
+        "openai_configured": bool(settings.openai_api_key),
+        "model": settings.openai_model,
     }
 
 

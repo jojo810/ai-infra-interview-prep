@@ -35,7 +35,7 @@ def generate_interview_scenario() -> str:
         client = get_openai_client()
 
         response = client.responses.create(
-            model=settings.open_ai_model,
+            model=settings.openai_model,
             input=(
                 "Create one realistic technical interview ario for an "
                 "AI infrustructure engineer. Focus on productionizaing an AI"
@@ -99,7 +99,7 @@ Provide a stronger example answer that would perform well in a technical intervi
 """
 
         response = client.responses.create(
-            model=settings.open_ai_model,
+            model=settings.openai_model,
             input=prompt,
         )
 
@@ -175,7 +175,7 @@ Do not rewrite the candidate's answer
         client = get_openai_client()
 
         response = client.responses.create(
-            model=settings.open_ai_model,
+            model=settings.openai_model,
             input=prompt,
         )
 
@@ -235,7 +235,7 @@ infrastructure decisions.
         client = get_openai_client()
 
         response = client.responses.create(
-            model=settings.open_ai_model,
+            model=settings.openai_model,
             input=prompt,
         )
 
