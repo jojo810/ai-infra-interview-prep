@@ -12,11 +12,6 @@ from app.config import settings
 
 logger = logging.getLogger(__name__)
 
-client = OpenAI(
-    api_key=settings.open_api_key,
-    timeout=60.0,
-)
-
 
 class AIServiceError(Exception):
     pass
