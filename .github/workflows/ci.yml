@@ -44,7 +44,7 @@ jobs:
         run: docker build -t ai-infra-interview-prep:${{ github.sha }} .
 
       - name: Scan Docker image
-        uses: aquasecurity/trivy-action@0.36.0
+        uses: aquasecurity/trivy-action@v0.36.0
         with:
           image-ref: ai-infra-interview-prep:${{ github.sha }}
           format: table
