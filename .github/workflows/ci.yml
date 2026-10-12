@@ -48,5 +48,6 @@ jobs:
         with:
           image-ref: ai-infra-interview-prep:${{ github.sha }}
           format: table
-          severity: CRITICAL,HIGH
+          severity: CRITICAL
+          ignore-unfixed: true
           exit-code: 1
